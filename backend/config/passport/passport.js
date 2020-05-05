@@ -8,7 +8,7 @@ const options =  {
 };
 
 const jwtStrategy = new Strategy(option, async (payload, done) => {
-    const user = await db.user.findOne({ id: payload.id});
+    const user = await db.user.findOne({where: { id: payload.id} });
 
     if (user) {
         done(null, user);
