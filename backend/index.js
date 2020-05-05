@@ -7,7 +7,7 @@ const app = express(); //เป็นการสร้าง express app ขึ
 const studentRoutes = require("./routes/student");
 const userRouter = require("./routes/user")
 
-require("./config/passport/passport");
+require("./config/passport/passport"); //เป็นการบอกให้ passport สร้าง strtegy ทั้งหมดที่เราเขียนไว้
 
 
 app.use(cors());
