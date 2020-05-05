@@ -7,11 +7,11 @@ const options =  {
     serectOrKey: 'codecamp5',
 };
 
-const jwtStrategy = new Strategy(option, async (payload, done) => {
+const jwtStrategy = new Strategy(options, async (payload, done) => {
     const user = await db.user.findOne({where: { id: payload.id} });
 
     if (user) {
-        done(null, user);
+        done(null, user);   // user ที่มาจาก database นี้ไปไปแปะให้ใน req.user
     } else {
         done(null, false);
     }
